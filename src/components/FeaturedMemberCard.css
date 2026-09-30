@@ -1,0 +1,11 @@
+.featured-member {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-member:hover,
+.featured-member:focus {
+  text-decoration: none;
+  color: inherit;
+}

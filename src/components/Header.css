@@ -1,0 +1,111 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(12, 39, 72, 0.92);
+  backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--color-gold-rgb), 0.15) 20%,
+    rgba(var(--color-gold-rgb), 0.7) 50%,
+    rgba(var(--color-gold-rgb), 0.15) 80%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  animation: vibe-sheen 9s linear infinite;
+}
+
+.site-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-header__brand {
+  flex-shrink: 0;
+}
+
+.site-header__brand:hover {
+  opacity: 1;
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.site-header__nav button,
+.site-header__nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #faf8f5;
+  text-decoration: none;
+  transition: background 0.35s var(--ease-out), border-color 0.35s var(--ease-out), color 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.site-header__nav button:hover,
+.site-header__nav a:hover {
+  text-decoration: none;
+}
+
+.site-header__nav button:hover,
+.site-header__nav a:not(.site-header__join):hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(var(--color-gold-rgb), 0.45);
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(var(--color-gold-rgb), 0.18);
+}
+
+.site-header__join {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+.site-header__join:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-accent-dark);
+  box-shadow: 0 0 22px rgba(var(--color-gold-rgb), 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-header__inner {
+    gap: 0.75rem;
+  }
+}

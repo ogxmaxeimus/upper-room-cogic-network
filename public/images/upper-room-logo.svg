@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" role="img" aria-label="Upper Room Church of God in Christ">
+  <defs>
+    <style>
+      .mark { fill: none; stroke: #1a5398; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+      .ribbon { fill: #1a5398; }
+      .ribbon-text { fill: #c4a35a; font-family: Georgia, 'Times New Roman', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-anchor: middle; }
+      .word { fill: #1a5398; font-family: Georgia, 'Times New Roman', serif; font-weight: 700; letter-spacing: 0.04em; text-anchor: middle; }
+    </style>
+  </defs>
+  <!-- Cross -->
+  <line class="mark" x1="140" y1="18" x2="140" y2="118" />
+  <line class="mark" x1="96" y1="52" x2="184" y2="52" />
+  <!-- GOD FIRST ribbon -->
+  <ellipse class="ribbon" cx="140" cy="52" rx="46" ry="22" />
+  <text class="ribbon-text" x="140" y="48">GOD</text>
+  <text class="ribbon-text" x="140" y="62">FIRST</text>
+  <!-- Wordmark -->
+  <text class="word" x="140" y="158" font-size="42">UPPER</text>
+  <text class="word" x="140" y="200" font-size="42">ROOM</text>
+</svg>

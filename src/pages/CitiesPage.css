@@ -1,0 +1,290 @@
+.cities-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.cities-page__header {
+  margin-bottom: 1.75rem;
+  max-width: 640px;
+}
+
+.cities-page__eyebrow {
+  margin: 0 0 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.cities-page__header h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.5vw, 3.1rem);
+  font-weight: 700;
+}
+
+.cities-page__header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.globe-explorer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.8fr);
+  gap: 1.25rem;
+  align-items: stretch;
+  margin-bottom: 2.5rem;
+}
+
+.globe-explorer__stage {
+  position: relative;
+  overflow: visible;
+  border-radius: var(--radius);
+  min-height: 460px;
+}
+
+.globe-explorer__stage::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(var(--color-gold-rgb), 0.48) 0%, rgba(var(--color-accent-rgb), 0.28) 34%, transparent 70%);
+  filter: blur(22px);
+  animation: globe-stage-glow 6s ease-in-out infinite alternate;
+}
+
+.globe-explorer__frame {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  height: 100%;
+  min-height: 460px;
+  border-radius: var(--radius);
+  background: radial-gradient(ellipse at 50% 30%, #163a66 0%, #0c2748 58%, #07182c 100%);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.38);
+  box-shadow:
+    0 0 0 1px rgba(var(--color-gold-rgb), 0.16),
+    0 0 50px rgba(var(--color-gold-rgb), 0.28),
+    0 0 110px rgba(var(--color-accent-rgb), 0.22),
+    var(--shadow-lg);
+}
+
+@keyframes globe-stage-glow {
+  from { opacity: 0.65; }
+  to { opacity: 1; }
+}
+
+.globe-explorer__hint {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.9rem;
+  margin: 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(250, 248, 245, 0.62);
+  pointer-events: none;
+}
+
+.globe-explorer__panel {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.globe-explorer__empty {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.state-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.state-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 999px;
+  padding: 0.4rem 0.7rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+.state-pill span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.state-pill:hover,
+.state-pill.is-active {
+  border-color: rgba(var(--color-gold-rgb), 0.55);
+  background: var(--color-accent-soft);
+  box-shadow: 0 8px 20px rgba(var(--color-gold-rgb), 0.12);
+}
+
+.globe-explorer__state h2 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+}
+
+.globe-explorer__state p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.city-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.city-list__btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  text-align: left;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out), background 0.3s var(--ease-out);
+}
+
+.city-list__btn:hover,
+.city-list__btn.is-active {
+  border-color: rgba(var(--color-gold-rgb), 0.5);
+  background: var(--color-accent-soft);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
+}
+
+.city-list__name {
+  font-weight: 700;
+}
+
+.city-list__count {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.city-members {
+  padding-top: 0.5rem;
+}
+
+.city-members .section__header {
+  margin-bottom: 1.25rem;
+}
+
+.city-members .section__header h2 {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+}
+
+.city-members .section__header p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.city-members .section__header--row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.city-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+}
+
+.city-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  border-color: rgba(var(--color-gold-rgb), 0.5);
+  text-decoration: none;
+}
+
+.city-card h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.city-card p {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.city-card__link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+@media (max-width: 860px) {
+  .globe-explorer {
+    grid-template-columns: 1fr;
+  }
+
+  .globe-explorer__stage,
+  .globe-explorer__frame {
+    min-height: 380px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe-explorer__stage::before {
+    animation: none;
+  }
+}

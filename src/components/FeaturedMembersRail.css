@@ -1,0 +1,57 @@
+.featured-rail {
+  position: relative;
+}
+
+.featured-rail__toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 0.85rem;
+}
+
+.featured-rail__nav {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1.45rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.featured-rail__nav:hover {
+  border-color: rgba(var(--color-gold-rgb), 0.55);
+  background: var(--color-accent-soft);
+}
+
+.featured-rail__track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
+  padding: 0.35rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)) 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--color-gold-rgb), 0.55) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.featured-rail__track:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.featured-rail .featured-member {
+  flex: none;
+  width: min(20rem, 78vw);
+  scroll-snap-align: start;
+}

@@ -1,0 +1,23 @@
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  white-space: nowrap;
+}
+
+.verified-badge--compact {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 50%;
+  justify-content: center;
+  font-size: 0.65rem;
+}

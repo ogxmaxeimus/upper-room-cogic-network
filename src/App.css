@@ -1,0 +1,47 @@
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app main {
+  flex: 1;
+}
+
+.home,
+.about-page,
+.join-page,
+.search-page,
+.cities-page,
+.city-view,
+.job-type-view,
+.specialty-view,
+.member-profile,
+.privacy-page,
+.not-found,
+.application-status,
+.admin-login,
+.admin-page {
+  animation: vibe-rise 0.85s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home,
+  .about-page,
+  .join-page,
+  .search-page,
+  .cities-page,
+  .city-view,
+  .job-type-view,
+  .specialty-view,
+  .member-profile,
+  .privacy-page,
+  .not-found,
+  .application-status,
+  .admin-login,
+  .admin-page {
+    animation: none;
+  }
+}

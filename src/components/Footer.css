@@ -1,0 +1,127 @@
+.site-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  margin-top: auto;
+}
+
+.site-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 3rem 2rem;
+  align-items: start;
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 320px;
+}
+
+.site-footer__brand .logo {
+  align-items: flex-start;
+}
+
+.site-footer__tagline {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.site-footer__church {
+  margin: 0;
+}
+
+.site-footer__church a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.site-footer__church a:hover {
+  text-decoration: underline;
+}
+
+.site-footer__column h2 {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.site-footer__column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.site-footer__column a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.site-footer__column a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.site-footer__bottom {
+  border-top: 1px solid var(--color-border);
+  padding: 1.25rem 1.5rem;
+}
+
+.site-footer__bottom p {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    padding-top: 2.5rem;
+  }
+
+  .site-footer__brand {
+    max-width: none;
+    text-align: center;
+    align-items: center;
+  }
+
+  .site-footer__brand .logo {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-footer__tagline {
+    text-align: center;
+  }
+
+  .site-footer__column {
+    text-align: center;
+  }
+
+  .site-footer__column ul {
+    align-items: center;
+  }
+}

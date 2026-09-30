@@ -1,0 +1,88 @@
+.application-status {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.application-status__card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-glow);
+  backdrop-filter: blur(12px);
+}
+
+.application-status__card h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+
+.application-status__name {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.application-status__meta {
+  margin: 0.25rem 0 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.application-status__panel {
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.application-status__panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.application-status__panel p {
+  margin: 0 0 0.75rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.application-status__panel p:last-child {
+  margin-bottom: 0;
+}
+
+.application-status__panel--pending {
+  background: var(--lux-pearl);
+  border: 1px solid var(--color-border);
+}
+
+.application-status__panel--approved {
+  background: var(--color-success-soft);
+  border: 1px solid var(--color-success);
+}
+
+.application-status__panel--rejected {
+  background: #fdf3f3;
+  border: 1px solid #f0d4d4;
+}
+
+.application-status__reason {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.6);
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.application-status__hint {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1rem;
+}
+
+.application-status__back {
+  margin: 1.5rem 0 0;
+  font-weight: 600;
+}

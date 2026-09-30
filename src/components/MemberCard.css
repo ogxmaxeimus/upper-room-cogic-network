@@ -1,0 +1,226 @@
+.member-card {
+  display: flex;
+  gap: 1rem;
+  text-align: left;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  border-color: rgba(var(--color-gold-rgb), 0.5);
+}
+
+.member-card--vibe {
+  --lx: 32%;
+  --ly: 28%;
+  --ldx: 0;
+  --ldy: 0;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.7);
+  transform: perspective(920px) rotateX(calc(var(--ldy) * -5deg)) rotateY(calc(var(--ldx) * 7deg));
+  transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out), border-color 0.45s var(--ease-out);
+}
+
+.member-card--vibe:hover {
+  transform: perspective(920px) translateY(-8px) rotateX(calc(var(--ldy) * -6deg)) rotateY(calc(var(--ldx) * 8deg));
+  box-shadow: var(--shadow-md), 0 22px 48px rgba(var(--color-gold-rgb), 0.22);
+  border-color: rgba(var(--color-gold-rgb), 0.62);
+}
+
+.member-card__vibe {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle 13rem at var(--lx) var(--ly),
+    rgba(var(--color-gold-rgb), 0.3) 0%,
+    rgba(var(--color-accent-rgb), 0.1) 38%,
+    transparent 68%
+  );
+}
+
+.member-card__vibe::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 62%
+  );
+  background-size: 240% 100%;
+  animation: vibe-sheen 7.5s ease-in-out infinite;
+}
+
+.member-card--vibe .member-card__photo,
+.member-card--vibe .member-card__body {
+  position: relative;
+  z-index: 1;
+}
+
+.member-card--vibe .member-card__photo {
+  border-color: rgba(var(--color-gold-rgb), 0.45);
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.85),
+    0 0 22px rgba(var(--color-gold-rgb), 0.4);
+  animation: vibe-breathe 7s ease-in-out infinite alternate;
+  transform: translate3d(calc(var(--ldx) * 4px), calc(var(--ldy) * 4px), 0);
+}
+
+.member-card__photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--color-border);
+}
+
+.member-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.member-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.member-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.member-card__name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.member-card__new,
+.member-card__demo {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.member-card__new {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.member-card__demo {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+}
+
+.member-card__title {
+  margin: 0.1rem 0 0;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.member-card__rating {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  white-space: nowrap;
+}
+
+.member-card__specialty {
+  margin: 0.35rem 0 0.15rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.member-card__meta {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.member-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+}
+
+.tag--more {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.member-card__availability {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.availability {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+}
+
+.availability--hiring {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.availability--freelance {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.availability--mentoring {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .member-card--vibe,
+  .member-card--vibe:hover,
+  .member-card--vibe .member-card__photo {
+    transform: none;
+    animation: none;
+  }
+
+  .member-card__vibe::after {
+    animation: none;
+  }
+}

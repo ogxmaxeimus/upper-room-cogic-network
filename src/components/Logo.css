@@ -1,0 +1,111 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.logo:hover {
+  opacity: 0.92;
+}
+
+.logo__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.logo__image {
+  display: block;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo__mark--header .logo__image {
+  height: 56px;
+}
+
+.logo__mark--footer .logo__image {
+  height: 40px;
+}
+
+.logo__mark--hero .logo__image {
+  height: 132px;
+}
+
+.logo__mark--home .logo__image {
+  height: 124px;
+}
+
+.logo__mark--admin .logo__image {
+  height: 96px;
+}
+
+.logo__mark--home {
+  margin: 0 auto 1rem;
+}
+
+.logo--home {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.logo__subtitle {
+  display: block;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.logo__subtitle--on-light {
+  color: var(--color-text-muted);
+}
+
+.logo__subtitle--on-dark {
+  color: rgba(250, 248, 245, 0.72);
+}
+
+.logo__subtitle--header {
+  font-size: 0.7rem;
+  max-width: 7rem;
+  line-height: 1.35;
+}
+
+.logo__subtitle--footer {
+  font-size: 0.68rem;
+  max-width: 8rem;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.logo__subtitle--hero {
+  font-size: 0.85rem;
+  max-width: none;
+  text-align: center;
+}
+
+.logo--hero {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo__mark--hero {
+  margin: 0 auto 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .logo--header .logo__subtitle {
+    display: none;
+  }
+
+  .logo__mark--header .logo__image {
+    height: 48px;
+  }
+}

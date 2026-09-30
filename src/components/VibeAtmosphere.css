@@ -1,0 +1,129 @@
+.vibe {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.vibe__spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 48vmax 42vmax at var(--mx, 52%) var(--my, 24%),
+    rgba(var(--color-gold-rgb), 0.18) 0%,
+    rgba(var(--color-accent-rgb), 0.08) 36%,
+    transparent 68%
+  );
+}
+
+.vibe__field {
+  position: absolute;
+  inset: -12%;
+  transform: translate3d(0, calc(var(--sy, 0) * -0.05px), 0);
+  will-change: transform;
+}
+
+.vibe__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(8px);
+}
+
+.vibe__orb--gold {
+  width: 46vmax;
+  height: 46vmax;
+  left: -12%;
+  top: -16%;
+  background: radial-gradient(circle, rgba(var(--color-gold-rgb), 0.3) 0%, transparent 68%);
+  animation: vibe-drift-a 26s ease-in-out infinite alternate;
+}
+
+.vibe__orb--ember {
+  width: 38vmax;
+  height: 38vmax;
+  right: -14%;
+  top: 12%;
+  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.22) 0%, transparent 70%);
+  animation: vibe-drift-b 32s ease-in-out infinite alternate;
+}
+
+.vibe__orb--cream {
+  width: 32vmax;
+  height: 32vmax;
+  left: 36%;
+  bottom: -22%;
+  background: radial-gradient(circle, rgba(255, 248, 235, 0.72) 0%, transparent 72%);
+  animation: vibe-drift-c 22s ease-in-out infinite alternate;
+}
+
+.vibe__grain {
+  position: absolute;
+  inset: -20%;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: vibe-grain 1.4s steps(2) infinite;
+}
+
+@keyframes vibe-drift-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(8%, 10%, 0) scale(1.08); }
+}
+
+@keyframes vibe-drift-b {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-10%, 8%, 0) scale(1.12); }
+}
+
+@keyframes vibe-drift-c {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(6%, -9%, 0) scale(1.06); }
+}
+
+@keyframes vibe-grain {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-2%, 1.5%, 0); }
+}
+
+@keyframes vibe-sheen {
+  from { background-position: 120% 0; }
+  to { background-position: -20% 0; }
+}
+
+@keyframes vibe-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes vibe-breathe {
+  from { opacity: 0.55; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vibe__spotlight {
+    background: radial-gradient(
+      ellipse 50vmax 44vmax at 50% 26%,
+      rgba(var(--color-gold-rgb), 0.1) 0%,
+      transparent 65%
+    );
+  }
+
+  .vibe__field,
+  .vibe__orb,
+  .vibe__grain {
+    animation: none;
+    transform: none;
+  }
+
+  .vibe__grain {
+    opacity: 0.03;
+  }
+}
