@@ -38,6 +38,26 @@
   --shadow-md: 0 8px 24px rgba(12, 39, 72, 0.09);
   --shadow-lg: 0 18px 48px rgba(12, 39, 72, 0.13);
   --shadow-glow: 0 16px 40px rgba(var(--color-gold-rgb), 0.16);
+  --glass-bg: rgba(255, 252, 247, 0.56);
+  --glass-bg-strong: rgba(255, 252, 247, 0.74);
+  --glass-bg-muted: rgba(244, 241, 234, 0.38);
+  --glass-border: rgba(255, 255, 255, 0.62);
+  --glass-edge: rgba(12, 39, 72, 0.08);
+  --glass-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, transparent 46%);
+  --glass-fill: var(--glass-sheen), var(--glass-bg);
+  --glass-fill-strong: var(--glass-sheen), var(--glass-bg-strong);
+  --glass-shadow: 0 10px 28px rgba(12, 39, 72, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.58);
+  --glass-shadow-hover: 0 16px 36px rgba(12, 39, 72, 0.1), 0 12px 28px rgba(var(--color-gold-rgb), 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  --glass-blur: 18px;
+  --glass-saturate: 1.18;
+  --glass-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  --glass-header-bg: rgba(255, 252, 247, 0.38);
+  --glass-header-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, transparent 58%);
+  --glass-header-border: rgba(255, 255, 255, 0.58);
+  --glass-nav-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, transparent 52%),
+    rgba(255, 252, 247, 0.32);
+  --glass-nav-border: rgba(255, 255, 255, 0.72);
   --radius: 12px;
   --radius-sm: 8px;
   --font-display: 'Libre Baskerville', 'Times New Roman', serif;
@@ -136,15 +156,26 @@ img {
 }
 
 .btn--secondary {
-  background: var(--color-surface);
-  border-color: var(--color-border);
+  background: var(--glass-fill);
+  border-color: var(--glass-border);
   color: var(--color-text);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(12px) saturate(1.12);
+  -webkit-backdrop-filter: blur(12px) saturate(1.12);
 }
 
 .btn--secondary:hover {
-  border-color: var(--color-accent);
-  background: var(--color-accent-soft);
+  border-color: rgba(var(--color-gold-rgb), 0.45);
+  background: var(--glass-fill-strong);
   transform: translateY(-1px);
+}
+
+.glass-panel {
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
 }
 
 .btn:disabled {

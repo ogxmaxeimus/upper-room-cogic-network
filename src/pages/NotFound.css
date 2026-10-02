@@ -1,8 +1,15 @@
 .not-found {
   max-width: 480px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
+  width: calc(100% - 3rem);
+  margin: 3rem auto 4rem;
+  padding: 3.5rem 1.75rem;
   text-align: center;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
 }
 
 .not-found h1 {

@@ -1,10 +1,24 @@
 .hero {
   position: relative;
-  max-width: 1200px;
+  max-width: none;
+  width: 100%;
   margin: 0 auto;
   padding: 2.5rem 1.5rem 2rem;
   text-align: center;
   isolation: isolate;
+  overflow-x: clip;
+  overflow-y: hidden;
+}
+
+.hero__wave {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
 }
 
 .hero::before {
@@ -17,17 +31,17 @@
   transform: translateX(-50%);
   background: radial-gradient(
     ellipse at center,
-    rgba(var(--color-gold-rgb), 0.2) 0%,
-    rgba(var(--color-accent-rgb), 0.06) 46%,
+    rgba(var(--color-gold-rgb), 0.12) 0%,
+    rgba(var(--color-accent-rgb), 0.04) 46%,
     transparent 72%
   );
-  animation: vibe-breathe 9s ease-in-out infinite alternate;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 }
 
-.hero > * {
+.hero > *:not(.hero__wave) {
   position: relative;
+  z-index: 1;
 }
 
 .hero__logo {
@@ -123,10 +137,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, transparent 42%),
+    linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius);
   color: white;
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--shadow-glow), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .cta-banner::after {
@@ -182,11 +199,12 @@
   display: inline-flex;
   gap: 2rem;
   padding: 1.25rem 2rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid var(--color-border);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm), 0 12px 36px rgba(var(--color-gold-rgb), 0.08);
-  backdrop-filter: blur(12px);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
 }
 
 .hero__stats div {
@@ -216,10 +234,11 @@
 
 .section--muted {
   max-width: none;
-  background: rgba(243, 239, 232, 0.62);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(10px);
+  background: var(--glass-sheen), var(--glass-bg-muted);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-edge);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
 }
 
 .section--muted > .section__header,
@@ -270,20 +289,23 @@
   gap: 0.15rem;
   text-decoration: none;
   color: inherit;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
   padding: 0.85rem 1rem;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(12px) saturate(1.12);
+  -webkit-backdrop-filter: blur(12px) saturate(1.12);
   transition: border-color 0.35s var(--ease-out), background 0.35s var(--ease-out),
     transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
 
 .city-chip:hover {
   border-color: rgba(var(--color-gold-rgb), 0.55);
-  background: var(--color-accent-soft);
+  background: var(--glass-fill-strong);
   text-decoration: none;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--glass-shadow-hover);
 }
 
 .city-chip__name {
@@ -307,17 +329,19 @@
   text-align: left;
   text-decoration: none;
   color: inherit;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--color-border);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
   transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
 }
 
 .category-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md), var(--shadow-glow);
+  box-shadow: var(--glass-shadow-hover);
   border-color: rgba(var(--color-gold-rgb), 0.5);
 }
 
@@ -372,19 +396,22 @@
   color: inherit;
   align-items: flex-start;
   gap: 0.15rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
   padding: 0.75rem 1rem;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(12px) saturate(1.12);
+  -webkit-backdrop-filter: blur(12px) saturate(1.12);
   transition: border-color 0.35s var(--ease-out), background 0.35s var(--ease-out),
     transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
 
 .specialty-chip:hover {
   border-color: rgba(var(--color-gold-rgb), 0.5);
-  background: var(--color-accent-soft);
+  background: var(--glass-fill-strong);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(var(--color-gold-rgb), 0.12);
+  box-shadow: var(--glass-shadow-hover);
 }
 
 .specialty-chip__name {

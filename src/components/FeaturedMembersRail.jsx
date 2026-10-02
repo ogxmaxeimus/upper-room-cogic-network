@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useMemo, useRef } from 'react'
 import FeaturedMemberCard, { FEATURED_TRANSITIONS } from './FeaturedMemberCard'
 import './FeaturedMembersRail.css'
 
@@ -13,20 +13,6 @@ export default function FeaturedMembersRail({ members }) {
       })),
     [members],
   )
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-
-    const onWheel = (event) => {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return
-      event.preventDefault()
-      track.scrollLeft += event.deltaY
-    }
-
-    track.addEventListener('wheel', onWheel, { passive: false })
-    return () => track.removeEventListener('wheel', onWheel)
-  }, [])
 
   const scrollByCard = (direction) => {
     const track = trackRef.current

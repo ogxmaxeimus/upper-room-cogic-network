@@ -23,6 +23,7 @@ import AdminApplicationDetail from './pages/admin/AdminApplicationDetail'
 import AdminMembers from './pages/admin/AdminMembers'
 import AdminMemberForm from './pages/admin/AdminMemberForm'
 import AdminContacts from './pages/admin/AdminContacts'
+import ScrollToTop from './components/ScrollToTop'
 import './App.css'
 import './components/ContactRequestModal.css'
 
@@ -82,6 +83,7 @@ function PublicApp() {
 export default function App() {
   return (
     <NetworkProvider>
+      <ScrollToTop />
       <VibeAtmosphere />
       <Routes>
         <Route path="/admin/login" element={<AdminLogin />} />

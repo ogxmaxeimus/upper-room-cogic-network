@@ -49,16 +49,6 @@ export default function CitiesPage() {
 
   return (
     <div className="cities-page">
-      <header className="cities-page__header">
-        <p className="cities-page__eyebrow">States · Cities · Members</p>
-        <h1>The Upper Room map</h1>
-        <p>
-          The globe points to each state where members serve. Select a state to see
-          its cities, then the professionals in that area. Demo profiles fill extra
-          cities and states so you can try the full flow.
-        </p>
-      </header>
-
       <div className="globe-explorer">
         <section className="globe-explorer__stage" aria-label="Member globe">
           <div className="globe-explorer__frame">
@@ -71,59 +61,71 @@ export default function CitiesPage() {
           </div>
         </section>
 
-        <aside className="globe-explorer__panel">
-          {states.length === 0 ? (
-            <p className="globe-explorer__empty">
-              Members appear here when they join with a city and state.
+        <div className="globe-explorer__copy">
+          <header className="cities-page__header">
+            <p className="cities-page__eyebrow">States · Cities · Members</p>
+            <h1>The Upper Room map</h1>
+            <p>
+              The globe points to each state where members serve. Select a state to see
+              its cities, then the professionals in that area. Demo profiles fill extra
+              cities and states so you can try the full flow.
             </p>
-          ) : (
-            <>
-              <div className="state-pills">
-                {states.map((state) => (
-                  <button
-                    key={state.code}
-                    type="button"
-                    className={state.code === selectedState?.code ? 'state-pill is-active' : 'state-pill'}
-                    onClick={() => selectState(state.code)}
-                  >
-                    {state.code}
-                    <span>{state.count}</span>
-                  </button>
-                ))}
-              </div>
+          </header>
 
-              {selectedState && (
-                <>
-                  <div className="globe-explorer__state">
-                    <h2>{selectedState.name}</h2>
-                    <p>
-                      {selectedState.count} member{selectedState.count !== 1 ? 's' : ''} across{' '}
-                      {selectedState.cities.length}{' '}
-                      {selectedState.cities.length === 1 ? 'city' : 'cities'}
-                    </p>
-                  </div>
+          <aside className="globe-explorer__panel">
+            {states.length === 0 ? (
+              <p className="globe-explorer__empty">
+                Members appear here when they join with a city and state.
+              </p>
+            ) : (
+              <>
+                <div className="state-pills">
+                  {states.map((state) => (
+                    <button
+                      key={state.code}
+                      type="button"
+                      className={state.code === selectedState?.code ? 'state-pill is-active' : 'state-pill'}
+                      onClick={() => selectState(state.code)}
+                    >
+                      {state.code}
+                      <span>{state.count}</span>
+                    </button>
+                  ))}
+                </div>
 
-                  <ul className="city-list">
-                    {selectedState.cities.map((city) => (
-                      <li key={city.slug}>
-                        <button
-                          type="button"
-                          className={city.slug === activeCity?.slug ? 'city-list__btn is-active' : 'city-list__btn'}
-                          onClick={() => selectCity(city.slug)}
-                        >
-                          <span className="city-list__name">{city.city}</span>
-                          <span className="city-list__count">
-                            {city.count} member{city.count !== 1 ? 's' : ''}
-                          </span>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </>
-          )}
-        </aside>
+                {selectedState && (
+                  <>
+                    <div className="globe-explorer__state">
+                      <h2>{selectedState.name}</h2>
+                      <p>
+                        {selectedState.count} member{selectedState.count !== 1 ? 's' : ''} across{' '}
+                        {selectedState.cities.length}{' '}
+                        {selectedState.cities.length === 1 ? 'city' : 'cities'}
+                      </p>
+                    </div>
+
+                    <ul className="city-list">
+                      {selectedState.cities.map((city) => (
+                        <li key={city.slug}>
+                          <button
+                            type="button"
+                            className={city.slug === activeCity?.slug ? 'city-list__btn is-active' : 'city-list__btn'}
+                            onClick={() => selectCity(city.slug)}
+                          >
+                            <span className="city-list__name">{city.city}</span>
+                            <span className="city-list__count">
+                              {city.count} member{city.count !== 1 ? 's' : ''}
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </>
+            )}
+          </aside>
+        </div>
       </div>
 
       {activeCity && (

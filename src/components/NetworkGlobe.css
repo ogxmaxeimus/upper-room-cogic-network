@@ -1,21 +1,12 @@
 .network-globe {
   position: relative;
   width: 100%;
-  min-height: 420px;
-  height: min(62vh, 640px);
-  isolation: isolate;
+  height: 100%;
+  min-height: 0;
 }
 
 .network-globe__glow {
-  position: absolute;
-  inset: 8% 6%;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 48%, rgba(var(--color-gold-rgb), 0.48) 0%, rgba(var(--color-accent-rgb), 0.28) 34%, transparent 68%);
-  filter: blur(28px);
-  pointer-events: none;
-  z-index: 0;
-  animation: globe-aura 5.5s ease-in-out infinite alternate;
+  display: none;
 }
 
 .network-globe__canvas {
@@ -26,20 +17,9 @@
   height: 100%;
   cursor: grab;
   touch-action: none;
+  background: transparent;
 }
 
 .network-globe__canvas:active {
   cursor: grabbing;
-}
-
-@keyframes globe-aura {
-  from { opacity: 0.72; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1.06); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .network-globe__glow {
-    animation: none;
-    opacity: 0.85;
-  }
 }

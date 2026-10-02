@@ -1,45 +1,57 @@
 .featured-rail {
   position: relative;
+  max-width: min(1200px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 0.35rem 0 0.25rem;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
 }
 
 .featured-rail__toolbar {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem 0.85rem;
+  padding: 0.75rem 1.15rem 0.55rem;
 }
 
 .featured-rail__nav {
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 999px;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill-strong);
   color: var(--color-text);
   font-size: 1.45rem;
   line-height: 1;
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(12px) saturate(1.12);
+  -webkit-backdrop-filter: blur(12px) saturate(1.12);
 }
 
 .featured-rail__nav:hover {
   border-color: rgba(var(--color-gold-rgb), 0.55);
-  background: var(--color-accent-soft);
+  background: var(--glass-fill-strong);
+  box-shadow: var(--glass-shadow-hover);
 }
 
 .featured-rail__track {
   display: flex;
   flex-wrap: nowrap;
   gap: 1.25rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
-  padding: 0.35rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)) 1.5rem;
+  scroll-padding-inline: 1.15rem;
+  padding: 0.35rem 1.15rem 1.25rem;
   scrollbar-width: thin;
   scrollbar-color: rgba(var(--color-gold-rgb), 0.55) transparent;
   -webkit-overflow-scrolling: touch;

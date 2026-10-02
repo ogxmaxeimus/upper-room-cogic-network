@@ -5,12 +5,13 @@
 }
 
 .application-status__card {
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid var(--color-border);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 2rem;
-  box-shadow: var(--shadow-glow);
-  backdrop-filter: blur(12px);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
 }
 
 .application-status__card h1 {

@@ -1,7 +1,14 @@
 .privacy-page {
   max-width: 720px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  width: calc(100% - 3rem);
+  margin: 2rem auto 4rem;
+  padding: 2rem 1.75rem 3rem;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
 }
 
 .privacy-page__header {

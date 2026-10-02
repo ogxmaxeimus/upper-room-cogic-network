@@ -81,10 +81,11 @@
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding: 2.5rem calc(50vw - 50% + 1.5rem);
-  background: rgba(243, 239, 232, 0.62);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(10px);
+  background: var(--glass-sheen), var(--glass-bg-muted);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-edge);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
 }
 
 .about-values {
@@ -95,17 +96,20 @@
 }
 
 .about-values article {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--color-border);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.25rem;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
   transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
 }
 
 .about-values article:hover {
   transform: translateY(-3px);
   border-color: rgba(var(--color-gold-rgb), 0.45);
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--glass-shadow-hover);
 }
 
 .about-values h3 {
@@ -159,17 +163,20 @@
 }
 
 .faith-card {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--color-border);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
   padding: 1.15rem 1.25rem;
   border-left: 3px solid var(--color-accent);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
   transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
 
 .faith-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--glass-shadow-hover);
 }
 
 .faith-card h3 {
@@ -202,10 +209,12 @@
   justify-content: space-between;
   gap: 1.5rem;
   padding: 2rem;
-  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-surface));
-  border: 1px solid var(--color-border);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  box-shadow: 0 12px 32px rgba(var(--color-gold-rgb), 0.08);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
 }
 
 .about-cta h2 {

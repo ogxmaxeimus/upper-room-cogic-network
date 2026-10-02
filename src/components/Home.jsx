@@ -5,6 +5,7 @@ import { useNetwork } from '../context/NetworkContext'
 import SearchBar from './SearchBar'
 import MemberCard from './MemberCard'
 import FeaturedMembersRail from './FeaturedMembersRail'
+import HeroWave from './HeroWave'
 import './Home.css'
 
 export default function Home() {
@@ -50,6 +51,7 @@ export default function Home() {
   return (
     <div className="home">
       <section className="hero">
+        <HeroWave />
         <Logo size="home" tone="on-light" linkToHome={false} showSubtitle={false} className="hero__logo" />
         <p className="hero__eyebrow">Faith · Community · Excellence</p>
         <h1>Discover Professionals in the Upper Room</h1>

@@ -6,6 +6,13 @@
 
 .specialty-view__header {
   margin-bottom: 2rem;
+  padding: 1.35rem 1.5rem;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
 }
 
 .specialty-view__type {

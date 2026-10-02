@@ -5,17 +5,19 @@
   width: 100%;
   text-decoration: none;
   color: inherit;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--color-border);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.25rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
   transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
 }
 
 .member-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md), var(--shadow-glow);
+  box-shadow: var(--glass-shadow-hover);
   border-color: rgba(var(--color-gold-rgb), 0.5);
 }
 
@@ -27,7 +29,7 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--glass-fill);
   transform: perspective(920px) rotateX(calc(var(--ldy) * -5deg)) rotateY(calc(var(--ldx) * 7deg));
   transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out), border-color 0.45s var(--ease-out);
 }

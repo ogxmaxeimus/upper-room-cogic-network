@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <Logo size="header" tone="on-dark" className="site-header__brand" />
+        <Logo size="header" tone="on-light" className="site-header__brand" />
         <nav className="site-header__nav" aria-label="Main">
           <Link to="/about">About</Link>
           <button type="button" onClick={() => navigate('/search')}>Search</button>
