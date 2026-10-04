@@ -111,7 +111,7 @@ const foundingMembers = [
     id: 'bishop-patrick-l-wooden-sr',
     name: 'Bishop Patrick L. Wooden Sr.',
     profilePhoto: '/images/bishop-patrick-l-wooden-sr.jpg',
-    jobTitle: 'Bishop & Senior Pastor',
+    jobTitle: 'Bishop',
     jobTypeId: 'ministry-education',
     specialtyId: 'pastoral',
     specialty: 'Pastoral Ministry',
@@ -297,7 +297,7 @@ export function getSeedMembers() {
 }
 
 /** Bump when seed roster changes so browsers re-seed instead of keeping stale demo data. */
-export const SEED_VERSION = 'v5-globe-demo-bots-2'
+export const SEED_VERSION = 'v6-bishop-title'
 
 export function getFeaturedMembers() {
   return _members.filter((m) => m.featured && !m.isBot)

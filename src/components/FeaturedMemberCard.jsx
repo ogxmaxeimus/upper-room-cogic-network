@@ -30,31 +30,47 @@ function getInitials(name) {
 function excerpt(bio, max = 148) {
   if (!bio) return 'Open this profile to learn more about their work in the network.'
   const clean = bio.replace(/[—–]/g, ', ').replace(/\s+/g, ' ').trim()
-  const sentence = clean.match(/^[^.!?]+[.!?]/)
-  const text = sentence ? sentence[0] : clean
-  if (text.length <= max) return text
-  return `${text.slice(0, max).replace(/\s+\S*$/, '')}.`
+  const protectedStops = /\b(?:[A-Z]|Sr|Jr|Mr|Mrs|Ms|Dr|St|vs)\./g
+  const placeholders = []
+  const masked = clean.replace(protectedStops, (match) => {
+    placeholders.push(match)
+    return `\0${placeholders.length - 1}\0`
+  })
+  const sentence = masked.match(/^[^.!?]+[.!?]/)
+  const restored = (sentence ? sentence[0] : masked).replace(
+    /\0(\d+)\0/g,
+    (_, index) => placeholders[Number(index)],
+  )
+  if (restored.length <= max) return restored
+  return `${restored.slice(0, max).replace(/\s+\S*$/, '')}.`
+}
+
+function hideBrokenPhoto(event) {
+  event.currentTarget.style.display = 'none'
+  event.currentTarget.closest('.featured-member__face')?.classList.add('featured-member__face--fallback')
 }
 
 function DefaultCard({ member, initials, background }) {
+  const photo = member.profilePhoto?.trim()
+
   return (
     <article
-      className="relative flex h-full flex-col justify-between overflow-hidden p-6 text-[#0c2748]"
+      className={`featured-member__face${photo ? '' : ' featured-member__face--fallback'}`}
       style={{ background }}
     >
-      <span className="text-xs font-medium uppercase tracking-[0.16em] text-black/50">
-        {member.specialty || member.jobTitle}
-      </span>
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 grid place-items-center text-[9rem] font-semibold tracking-[-0.08em] text-black/[0.06]"
-      >
+      <span className="featured-member__initials" aria-hidden="true">
         {initials}
-      </div>
-      <div className="relative">
-        <h3 className="text-3xl font-medium tracking-[-0.05em]">{member.name}</h3>
-        <p className="mt-1 text-sm text-black/55">{member.jobTitle}</p>
-      </div>
+      </span>
+      {photo ? (
+        <img
+          className="featured-member__photo"
+          src={photo}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          onError={hideBrokenPhoto}
+        />
+      ) : null}
     </article>
   )
 }
@@ -62,17 +78,18 @@ function DefaultCard({ member, initials, background }) {
 function HoverCard({ member, background, color }) {
   return (
     <article
-      className="flex h-full flex-col justify-between p-6"
+      className="featured-member__hover"
       style={{ background, color }}
     >
-      <p className="max-w-[24ch] text-xl font-medium leading-tight tracking-[-0.035em]">
-        {excerpt(member.bio)}
-      </p>
       <div>
-        <p className="font-semibold">{member.name}</p>
-        <p className="mt-1 text-xs uppercase tracking-[0.12em] opacity-55">
-          {member.jobTitle}
-        </p>
+        <span className="featured-member__hover-kicker">
+          {member.specialty || member.jobTitle}
+        </span>
+        <p className="featured-member__hover-summary">{excerpt(member.bio)}</p>
+      </div>
+      <div>
+        <p className="featured-member__hover-name">{member.name}</p>
+        <p className="featured-member__hover-title">{member.jobTitle}</p>
       </div>
     </article>
   )
@@ -106,7 +123,7 @@ export default function FeaturedMemberCard({ member, transition }) {
         hoverComponent={
           <HoverCard member={member} background={hoverBg} color={hoverText} />
         }
-        className="aspect-[4/5] w-full max-w-sm rounded-3xl"
+        className="featured-member__transition aspect-[4/5] w-full max-w-sm rounded-3xl"
       />
     </Link>
   )

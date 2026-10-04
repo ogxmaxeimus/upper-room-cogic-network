@@ -130,6 +130,7 @@
   position: relative;
   overflow: hidden;
   display: flex;
+  align-items: flex-start;
   gap: 1.5rem;
   padding: 2.25rem 2rem 2rem;
   background: linear-gradient(
@@ -183,15 +184,19 @@
 
 .profile-card__photo-wrap {
   position: relative;
+  display: grid;
+  place-items: center;
   flex-shrink: 0;
   width: 148px;
   height: 148px;
+  aspect-ratio: 1 / 1;
+  transform: translate3d(calc(var(--ldx) * 6px), calc(var(--ldy) * 5px), 0);
 }
 
 .profile-card__photo-wrap::before {
   content: "";
   position: absolute;
-  inset: -7px;
+  inset: -6px;
   border-radius: 50%;
   background: conic-gradient(
     from 0deg,
@@ -214,16 +219,26 @@
   z-index: -1;
 }
 
-.profile-card__photo {
+.profile-card__photo-frame {
   position: relative;
   z-index: 1;
-  width: 148px;
-  height: 148px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  object-fit: cover;
+  overflow: hidden;
   border: 4px solid rgba(255, 255, 255, 0.92);
   box-shadow: var(--shadow-md);
-  transform: translate3d(calc(var(--ldx) * 6px), calc(var(--ldy) * 5px), 0);
+  background: var(--color-surface-muted);
+}
+
+.profile-card__photo {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .profile-card__actions {
@@ -521,7 +536,7 @@
 @media (prefers-reduced-motion: reduce) {
   .profile-card__orb,
   .profile-card__header::after,
-  .profile-card--vibe .profile-card__photo {
+  .profile-card--vibe .profile-card__photo-wrap {
     animation: none;
     transform: none;
   }

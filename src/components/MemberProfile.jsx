@@ -92,11 +92,13 @@ export default function MemberProfile() {
             <span className="profile-card__spot" />
           </div>
           <div className="profile-card__photo-wrap">
-            <img
-              className="profile-card__photo"
-              src={member.profilePhoto}
-              alt={`Photo of ${member.name}`}
-            />
+            <div className="profile-card__photo-frame">
+              <img
+                className="profile-card__photo"
+                src={member.profilePhoto}
+                alt={`Photo of ${member.name}`}
+              />
+            </div>
           </div>
           <div className="profile-card__intro">
             <div className="profile-card__name-row">

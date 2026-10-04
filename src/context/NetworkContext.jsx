@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import SplashScreen from '../components/SplashScreen'
 import * as store from '../lib/store'
 import {
   bindMembers,
@@ -25,8 +26,10 @@ const NetworkContext = createContext(null)
 
 export function NetworkProvider({ children }) {
   const [ready, setReady] = useState(false)
+  const [splashDone, setSplashDone] = useState(false)
   const [version, setVersion] = useState(0)
   const [storageMode, setStorageMode] = useState('local')
+  const finishSplash = useCallback(() => setSplashDone(true), [])
 
   const refresh = useCallback(() => {
     const members = store.getStoredMembers()
@@ -128,15 +131,12 @@ export function NetworkProvider({ children }) {
     }
   }, [ready, refresh, version, storageMode])
 
-  if (!ready) {
-    return (
-      <div className="app-loading">
-        <p>Loading network directory…</p>
-      </div>
-    )
-  }
-
-  return <NetworkContext.Provider value={value}>{children}</NetworkContext.Provider>
+  return (
+    <>
+      {ready ? <NetworkContext.Provider value={value}>{children}</NetworkContext.Provider> : null}
+      {!splashDone ? <SplashScreen dataReady={ready} onFinished={finishSplash} /> : null}
+    </>
+  )
 }
 
 export function useNetwork() {

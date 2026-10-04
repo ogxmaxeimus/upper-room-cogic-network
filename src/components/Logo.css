@@ -45,6 +45,16 @@
   height: 96px;
 }
 
+.logo__mark--splash .logo__image {
+  height: 168px;
+}
+
+.logo--splash {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .logo__mark--home {
   margin: 0 auto 1rem;
 }
@@ -107,5 +117,9 @@
 
   .logo__mark--header .logo__image {
     height: 48px;
+  }
+
+  .logo__mark--splash .logo__image {
+    height: 132px;
   }
 }
